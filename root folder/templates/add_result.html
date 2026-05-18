@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="card">
+    <h2>Add Lab Results</h2>
+
+    <form method="POST">
+
+        <label>Patient</label><br>
+        <select name="patient_id">
+            {% for p in patients %}
+                <option value="{{ p.id }}">{{ p.name }}</option>
+            {% endfor %}
+        </select>
+
+        <br><br>
+
+        <table>
+            <tr>
+                <th>Test</th>
+                <th>Unit</th>
+                <th>Value</th>
+            </tr>
+
+            {% for t in tests %}
+            <tr>
+                <td>{{ t.name }}</td>
+                <td>{{ t.unit }}</td>
+                <td>
+                    <input type="number" name="test_{{ t.id }}">
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <br>
+
+        <button class="btn">Save Results</button>
+
+    </form>
+</div>
+
+{% endblock %}

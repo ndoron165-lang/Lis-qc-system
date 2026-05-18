@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="card">
+    <h2>QC Overview (Basic)</h2>
+</div>
+
+<div class="card">
+    <h3>Hemoglobin QC</h3>
+
+    {% for r in hb %}
+        <p>{{ r.patient.name }} - {{ r.value }} ({{ r.flag }})</p>
+    {% endfor %}
+</div>
+
+<div class="card">
+    <h3>WBC QC</h3>
+
+    {% for r in wbc %}
+        <p>{{ r.patient.name }} - {{ r.value }} ({{ r.flag }})</p>
+    {% endfor %}
+</div>
+
+{% endblock %}

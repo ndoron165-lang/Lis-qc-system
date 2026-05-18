@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="card">
+    <h2>Laboratory Dashboard</h2>
+
+    <p>System overview and analytics</p>
+</div>
+
+<div class="card">
+    <h3>Summary</h3>
+
+    <p><b>Total Patients:</b> {{ total_patients }}</p>
+    <p><b>Total Tests:</b> {{ total_tests }}</p>
+    <p><b>Total Results:</b> {{ total_results }}</p>
+</div>
+
+<div class="card">
+    <h3>Result Distribution</h3>
+
+    <p class="NORMAL">Normal: {{ normal }}</p>
+    <p class="LOW">Low: {{ low }}</p>
+    <p class="HIGH">High: {{ high }}</p>
+</div>
+
+<div class="card">
+    <h3>Quick Actions</h3>
+
+    <a class="btn" href="{{ url_for('add_patient') }}">Add Patient</a>
+    <a class="btn" href="{{ url_for('add_result') }}">Add Results</a>
+    <a href="/qc_chart/WBC">WBC QC Chart</a>
+</div>
+
+{% endblock %}

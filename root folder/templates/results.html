@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="card">
+    <h2>Lab Results</h2>
+</div>
+
+{% for patient, results in grouped.items() %}
+
+<div class="card">
+
+    <h3>{{ patient.name }}</h3>
+    <p>{{ patient.age }} years | {{ patient.gender }}</p>
+
+    <table>
+        <tr>
+            <th>Test</th>
+            <th>Value</th>
+            <th>Flag</th>
+            <th>Interpretation</th>
+        </tr>
+
+        {% for r in results %}
+        <tr>
+            <td>{{ r.test.name }}</td>
+            <td>{{ r.value }}</td>
+            <td class="{{ r.flag }}">{{ r.flag }}</td>
+            <td>{{ r.interpretation }}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+    <br>
+
+    <!-- ✅ ONE PRINT BUTTON PER PATIENT -->
+    <a class="btn" href="{{ url_for('report', patient_id=patient.id) }}">
+        Print Report
+    </a>
+
+</div>
+
+{% endfor %}
+
+{% endblock %}

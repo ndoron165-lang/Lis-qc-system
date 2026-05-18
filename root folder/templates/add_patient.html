@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="card">
+
+    <h2>Add Patient</h2>
+
+    <form method="POST">
+
+        <label>Name</label><br>
+        <input name="name" required><br><br>
+
+        <label>Age</label><br>
+        <input type="number" name="age" required><br><br>
+
+        <label>Gender</label><br>
+        <select name="gender">
+            <option>Male</option>
+            <option>Female</option>
+        </select><br><br>
+
+        <button class="btn">Save Patient</button>
+
+    </form>
+
+</div>
+
+{% endblock %}

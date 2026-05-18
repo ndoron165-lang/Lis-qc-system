@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lab Report</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            border-bottom: 2px solid black;
+            margin-bottom: 20px;
+        }
+
+        .info {
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background: #3498db;
+            color: white;
+            padding: 10px;
+        }
+
+        td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+        }
+
+        .LOW { color: orange; font-weight: bold; }
+        .HIGH { color: red; font-weight: bold; }
+        .NORMAL { color: green; font-weight: bold; }
+
+        .btn {
+            padding: 10px;
+            background: green;
+            color: white;
+            border: none;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        @media print {
+            .btn { display: none; }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="header">
+    <h2>LABORATORY REPORT</h2>
+    <p>Medical Laboratory Information System</p>
+</div>
+
+<div class="info">
+    <p><b>Patient Name:</b> {{ patient.name }}</p>
+    <p><b>Age:</b> {{ patient.age }}</p>
+    <p><b>Gender:</b> {{ patient.gender }}</p>
+</div>
+
+<table>
+    <tr>
+        <th>Test</th>
+        <th>Value</th>
+        <th>Flag</th>
+        <th>Interpretation</th>
+    </tr>
+
+    {% for r in results %}
+    <tr>
+        <td>{{ r.test.name }}</td>
+        <td>{{ r.value }}</td>
+        <td class="{{ r.flag }}">{{ r.flag }}</td>
+        <td>{{ r.interpretation }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<button class="btn" onclick="window.print()">Print Report</button>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="card">
+    <h2>{{ patient.name }} - {{ test_name }} Trend</h2>
+</div>
+
+<div class="card">
+    <img src="{{ url_for('static', filename='patient_' ~ patient.id ~ '_' ~ test_name ~ '.png') }}" width="100%">
+</div>
+
+{% endblock %}
+
+{% endblock %}

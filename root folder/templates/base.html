@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LIS System</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            background: #eef2f7;
+            display: flex;
+        }
+
+        /* SIDEBAR */
+        .sidebar {
+            width: 220px;
+            background: #1e3a5f;
+            color: white;
+            height: 100vh;
+            position: fixed;
+            padding: 20px;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .sidebar a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 5px;
+        }
+
+        .sidebar a:hover {
+            background: #2f5f8f;
+        }
+
+        /* MAIN */
+        .main {
+            margin-left: 240px;
+            padding: 20px;
+            width: 100%;
+        }
+
+        /* CARDS */
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        /* TABLE */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th {
+            background: #3498db;
+            color: white;
+            padding: 12px;
+        }
+
+        td {
+            padding: 10px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:hover {
+            background: #f1f1f1;
+        }
+
+        /* BUTTON */
+        .btn {
+            background: #27ae60;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 6px;
+            border: none;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background: #219150;
+        }
+
+        /* FLAGS */
+        .LOW {
+            color: orange;
+            font-weight: bold;
+            background: #fff3e0;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        .HIGH {
+            color: red;
+            font-weight: bold;
+            background: #ffebee;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        .NORMAL {
+            color: green;
+            font-weight: bold;
+            background: #e8f5e9;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        input, select {
+            padding: 8px;
+            width: 220px;
+            margin-top: 5px;
+        }
+
+
+    </style>
+</head>
+
+<body>
+<div style="background:#27ae60; color:white; padding:10px; font-weight:bold;">
+    <marquee behavior="scroll" direction="left">
+        We value patient care • Integrity first • Corruption-free laboratory services
+    </marquee>
+</div>
+
+<div class="sidebar">
+    <h2>LIS</h2>
+
+    <a href="{{ url_for('index') }}">Dashboard</a>
+    <a href="{{ url_for('add_patient') }}">Add Patient</a>
+    <a href="{{ url_for('patients') }}">Patients</a>
+    <a href="{{ url_for('add_result') }}">Add Results</a>
+    <a href="{{ url_for('results') }}">Results</a>
+    <a href="{{ url_for('login') }}">Login</a>
+    <a href="{{ url_for('register') }}">Register</a>
+    <a href="{{ url_for('logout') }}">Logout</a>
+</div>
+
+<div class="main">
+    {% block content %}{% endblock %}
+</div>
+
+</body>
+</html>

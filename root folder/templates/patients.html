@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="card">
+    <h2>Patients</h2>
+</div>
+
+<div class="card">
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Gender</th>
+    </tr>
+
+    {% for p in patients %}
+    <tr>
+        <td>{{ p.name }}</td>
+        <td>{{ p.age }}</td>
+          <td>{{ p.gender }}</td>
+        <td>
+        <a class="btn" href="/patient_trend/{{ p.id }}/WBC">WBC Trend</a>
+<a class="btn" href="/patient_trend/{{ p.id }}/Hemoglobin">HB Trend</a>
+            <a class="btn" href="/patient_trend/{{ p.id }}/RBC">RBC Trend</a>
+            <a class="btn" href="/patient_trend/{{ p.id }}/MCV">MCV Trend</a>
+
+        </td>
+
+    </tr>
+    {% endfor %}
+</table>
+
+</div>
+
+
+{% endblock %}
