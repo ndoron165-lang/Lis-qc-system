@@ -92,7 +92,7 @@ def add_patient():
         db.session.add(Patient(
             name=request.form['name'],
             age=request.form['age'],
-            gender=request.form['gender']
+            gender=request.form['gender'],
         ))
         db.session.commit()
         return redirect('/patients')

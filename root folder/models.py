@@ -10,6 +10,7 @@ class Patient(db.Model):
     gender = db.Column(db.String(10))
 
 
+
 class Test(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50))
